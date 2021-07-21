@@ -11,7 +11,7 @@
 ## Setup
 
  - Make sure machine have `make` (https://www.gnu.org/software/make/)
- - Run `make setup`
+ - Run `sudo make setup`
 
 ## Check software versions
 
