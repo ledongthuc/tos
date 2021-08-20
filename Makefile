@@ -22,7 +22,10 @@ version:
 	gcc --version
 	ld --version
 
-build-gcc:
+build-gcc: clean-gcc
 	cd gcc; make build
 clean-gcc:
 	cd gcc; make clean
+
+build-kernel:
+	cd kernel; make build

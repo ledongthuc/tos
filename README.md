@@ -10,8 +10,9 @@
 
 ## Setup
 
- - Make sure machine have `make` (https://www.gnu.org/software/make/)
- - Run `sudo make setup`
+ - Make sure machine have `make` (https://www.gnu.org/software/make/).
+ - Run `sudo make setup` to install library and tools.
+ - Run `sudo make build-gcc` to build gcc, binutils for building kernel. Output is in `$HOME/opt/cross`.
 
 ## Check software versions
 
