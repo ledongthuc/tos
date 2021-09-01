@@ -14,7 +14,9 @@ setup:
 		libmpfr-dev \
 		libisl-dev \
 		bochs \
-		bochs-sdl
+		bochs-sdl \
+		grub-common
+		xorriso
 #		libcloog-isl-dev \
 
 version:
@@ -29,3 +31,6 @@ clean-gcc:
 
 build-kernel:
 	cd kernel; make build
+
+emu-test: build-kernel
+	qemu-system-i386 -cdrom kernel/build/thucos.iso
