@@ -1,9 +1,12 @@
-/* Declare constants for the multiboot header. */
-.set ALIGN,    1<<0             /* align loaded modules on 4KB page boundaries */
-.set MEMINFO,  1<<1             /* provide memory map */
-.set FLAGS,    ALIGN | MEMINFO  /* value = 11, this is the Multiboot 'flag' field */
-.set MAGIC,    0x1BADB002       /* 'magic number' lets bootloader find the header */
-.set CHECKSUM, -(MAGIC + FLAGS) /* checksum of above, to prove we are multiboot */
+/* Declare constants for the multiboot header.
+   Include 3 main parts: magic number, flags and checksum 
+   More detail at https://thuc.space/posts/os_kernel_assembly/#1-multiboot-standard-layout
+*/
+.set MAGIC,          0x1BADB002                   /* 'magic number' lets bootloader find the header */
+.set FLAGS_ALIGN,    1<<0                         /* Indicate align loaded modules on 4KB page boundaries */
+.set FLAGS_MEMINFO,  1<<1                         /* Indicate mem_* in Multiboot info is required */
+.set FLAGS,          FLAGS_ALIGN | FLAGS_MEMINFO  /* value = 11, this is the Multiboot 'flag' field */
+.set CHECKSUM,       -(MAGIC + FLAGS)             /* checksum of above, to prove we are multiboot */
  
 /* 
 Declare a multiboot header that marks the program as a kernel. These are magic

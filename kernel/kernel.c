@@ -67,7 +67,7 @@ void terminal_initialize(void)
 	for (size_t y = 0; y < VGA_HEIGHT; y++) {
 		for (size_t x = 0; x < VGA_WIDTH; x++) {
 			const size_t index = y * VGA_WIDTH + x;
-			terminal_buffer[index] = vga_entry(' ', terminal_color);
+			terminal_buffer[index] = vga_entry('x', terminal_color);
 		}
 	}
 }
@@ -110,5 +110,5 @@ void kernel_main(void)
 	terminal_initialize();
  
 	/* Newline support is left as an exercise. */
-	terminal_writestring("Hello, ThucOS!\n");
+	terminal_writestring("Hello, ThucOS!\nHello");
 }
